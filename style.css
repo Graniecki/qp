@@ -230,10 +230,12 @@ ul {
   line-height: 1.79rem;
 }
 
-.questions__block img {
+.opener {
   position: absolute;
   top: 21px;
   right: 14px;
+
+  transition: transform 800ms;
 }
 
 /** CONTACT BLOCK **/
