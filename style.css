@@ -1,3 +1,19 @@
+@font-face {
+	font-family: 'Museo Sans Cyrl';
+	src: url('./fonts/MuseoSans-300.eot');
+	src: local('☺'), url('./fonts/MuseoSans-300.woff') format('woff'), url('./fonts/MuseoSans-300.ttf') format('truetype'), url('./fonts/MuseoSans-300.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Museo Sans Cyrl';
+	src: url('./fonts/MuseoSans-500.eot');
+	src: local('☺'), url('./fonts/MuseoSans-500.woff') format('woff'), url('./fonts/MuseoSans-500.ttf') format('truetype'), url('./fonts/MuseoSans-500.svg') format('svg');
+	font-weight: 500;
+	font-style: normal;
+}
+
 html {
   font-size: 15px;
 }
@@ -6,6 +22,7 @@ html {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Museo Sans Cyrl', sans-serif;
 }
 
 a {
@@ -209,7 +226,7 @@ ul {
   position: relative;
   height: 80px;
   margin-bottom: 16px;
-  padding: 25px 15px 25px 13px;
+  padding: 15px 15px 25px 13px;
   border: 2px solid #4F62F6;
   border-radius: 1.1em;
   overflow: hidden;
@@ -224,7 +241,7 @@ ul {
 }
 
 .questions__block p {
-  margin-top: 27px;
+  margin-top: 32px;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
   line-height: 1.79rem;
@@ -506,6 +523,10 @@ ul {
 
   .questions {
     padding: 79px 40px 52px;
+  }
+
+  .questions__block {
+    padding-top: 25px;
   }
 
   /** CONTACT BLOCK **/
