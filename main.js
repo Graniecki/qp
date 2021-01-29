@@ -2,6 +2,9 @@
 
 const questionsBlock = document.querySelector('.questions');
 const form = document.querySelector('.contact__form');
+const header = document.querySelector('.header');
+const headerNav = header.querySelector('.navigation');
+
 
 const openQuestion = (event) => {
   const target = event.target;
@@ -64,5 +67,17 @@ const formValidator = (event) => {
   }, 5000);
 };
 
+const openMenu = (event) => {
+  const target = event.target;
+  const headerHeight = parseFloat(window.getComputedStyle(header).height);
+
+  if (!target.closest('.header__menu')) {
+    return;
+  }
+
+  header.style.height = headerHeight === 80 ? `${header.scrollHeight}px` : '80px';
+};
+
 questionsBlock.addEventListener('click', openQuestion);
 form.addEventListener('submit', formValidator);
+header.addEventListener('click', openMenu);

@@ -38,14 +38,12 @@ ul {
 
 .header {
   display: flex;
-  justify-content: space-between;
-  padding: 28px 20px;
-}
+  flex-wrap: wrap;
+  height: 80px;
+  padding: 28px 20px 20px;
+  overflow: hidden;
 
-.header .navigation,
-.header__button,
-.header__language {
-  display: none;
+  transition: height 800ms;
 }
 
 .logo {
@@ -53,6 +51,30 @@ ul {
   font-weight: bold;
   color: #333333;
   text-transform: uppercase;
+}
+
+.header__panel {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.header__button,
+.header__language {
+  display: none;
+}
+
+.header .navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 23px;
+  text-align: center;
+}
+
+.header .navigation li {
+  font-size: 1.08rem;
+  margin-bottom: 7%;
 }
 
 /** TRADE BLOCK **/
@@ -407,6 +429,15 @@ ul {
     margin-top: 8px;
   }
 
+  .header .navigation ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header .navigation li {
+    font-size: 1.5rem;
+  }
+
 /** TRADE **/
 
   .trade {
@@ -568,15 +599,22 @@ ul {
   }
 }
 
+/** LAPTOPS 1220px **/
+
 @media screen and (min-width: 1220px) {
   .header {
     padding: 20px 60px 20px 120px;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .header .logo {
+    order: 1;
+    margin-right: 50px;
   }
 
   .header .logo,
-  .header .navigation,
   .header__language {
     display: block;
   }
@@ -589,19 +627,31 @@ ul {
     margin: 0;
   }
 
-  .header__nav,
-  .header__setting {
+  .header__nav {
     display: flex;
   }
 
+  .header__panel {
+    flex-grow: 0;
+    order: 3;
+  }
+
   .header .navigation {
-    margin-left: 60px;
+    justify-content: flex-start;
+    margin-top: 0;
+    width: 70%;
+    flex-grow: 1;
+    order: 2;
+  }
+
+  .header .navigation ul {
+    flex-direction: row;
   }
 
   .header .navigation li {
-    margin-right: 35px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
+    margin: 0 15px;
   }
 
   .header__language {
