@@ -209,7 +209,9 @@
 
     <form action="/" method="POST" class="contact__form">
       <input type="text" name="name" placeholder="Name">
-      <input type="text" name="email" placeholder="Email">
+      <div class="email-wrap">
+        <input type="text" name="email" placeholder="Email">
+      </div>
       <textarea name="message" cols="30" rows="4" placeholder="Message"></textarea>
       <button type="submit" class="button">send</button>
     </form>

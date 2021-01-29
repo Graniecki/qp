@@ -1,8 +1,9 @@
 'use strict';
 
 const questionsBlock = document.querySelector('.questions');
+const form = document.querySelector('.contact__form');
 
-questionsBlock.addEventListener('click', (event) => {
+const openQuestion = (event) => {
   const target = event.target;
 
   if (!target.closest('.questions__block')) {
@@ -37,4 +38,31 @@ questionsBlock.addEventListener('click', (event) => {
 
   currentQuestion.style.height = `${currentQuestion.scrollHeight}px`;
   plus.style.transform = 'rotate(45deg)';
-});
+}
+
+const formValidator = (event) => {
+  event.preventDefault();
+
+  const email = form.elements.email;
+
+  if (!email.value.includes('@')) {
+    email.classList.add('uncorrect');
+    email.parentElement.classList.add('uncorrect');
+    email.classList.remove('correct');
+  } else {
+    email.classList.add('correct');
+    email.classList.remove('uncorrect');
+    email.parentElement.classList.remove('uncorrect');
+  }
+
+  email.value = '';
+
+  setTimeout(() => {
+    email.classList.remove('correct');
+    email.classList.remove('uncorrect');
+    email.parentElement.classList.remove('uncorrect');
+  }, 5000);
+};
+
+questionsBlock.addEventListener('click', openQuestion);
+form.addEventListener('submit', formValidator);

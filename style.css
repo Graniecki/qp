@@ -276,6 +276,28 @@ ul {
   border-radius: 1.3em;
 }
 
+.correct {
+  border-color: rgba(14, 172, 0, 1) !important;
+}
+
+.uncorrect {
+  border-color: rgba(235, 87, 87, 1) !important;
+}
+
+.uncorrect::after {
+  content: "Incorrect email type";
+  display: block;
+  position: absolute;
+  color: rgba(235, 87, 87, 1);
+  margin-top: -23px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.email-wrap {
+  width: 100%;
+}
+
 .contact__form input,
 .contact__form textarea {
   width: 100%;
