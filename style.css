@@ -182,6 +182,14 @@ ul {
   text-align: center;
 }
 
+.team__card {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 .team__name {
   margin: 6px 0 8px;
   font-size: 1.37rem;

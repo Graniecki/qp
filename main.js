@@ -1,10 +1,7 @@
 'use strict';
 
+// Opening question
 const questionsBlock = document.querySelector('.questions');
-const form = document.querySelector('.contact__form');
-const header = document.querySelector('.header');
-const headerNav = header.querySelector('.navigation');
-
 
 const openQuestion = (event) => {
   const target = event.target;
@@ -43,6 +40,11 @@ const openQuestion = (event) => {
   plus.style.transform = 'rotate(45deg)';
 }
 
+questionsBlock.addEventListener('click', openQuestion);
+
+// Form validation
+const form = document.querySelector('.contact__form');
+
 const formValidator = (event) => {
   event.preventDefault();
 
@@ -67,6 +69,12 @@ const formValidator = (event) => {
   }, 5000);
 };
 
+form.addEventListener('submit', formValidator);
+
+// Menu opening on mobile and tablet devices
+const header = document.querySelector('.header');
+const headerNav = header.querySelector('.navigation');
+
 const openMenu = (event) => {
   const target = event.target;
   const headerHeight = parseFloat(window.getComputedStyle(header).height);
@@ -78,6 +86,36 @@ const openMenu = (event) => {
   header.style.height = headerHeight === 80 ? `${header.scrollHeight}px` : '80px';
 };
 
-questionsBlock.addEventListener('click', openQuestion);
-form.addEventListener('submit', formValidator);
 header.addEventListener('click', openMenu);
+
+// Slider
+const team = document.querySelector('.team');
+const cards = team.querySelector('.team__slider').children;
+const state = {
+  cardNumber: 0,
+};
+
+const toggleCard = (event) => {
+  const target = event.target;
+
+  if (!target.closest('.prev-slide') && !target.closest('.next-slide')) {
+    return;
+  }
+
+  cards[state.cardNumber].classList.toggle('hidden');
+
+  target.closest('.prev-slide') ? state.cardNumber-- : state.cardNumber++;
+
+  switch (true) {
+    case state.cardNumber < 0 :
+      state.cardNumber = 3;
+      break;
+    case state.cardNumber > 3 :
+      state.cardNumber = 0;
+      break;
+  }
+
+  cards[state.cardNumber].classList.toggle('hidden');
+};
+
+team.addEventListener('click', toggleCard);
